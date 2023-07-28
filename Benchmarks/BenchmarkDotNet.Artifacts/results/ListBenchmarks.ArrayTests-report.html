@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>ListBenchmarks.ArrayTests-20230728-130528</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.4, OS=Windows 10 (10.0.19045.3208)
+12th Gen Intel Core i7-12800H, 1 CPU, 20 logical and 14 physical cores
+.NET SDK=7.0.306
+  [Host]     : .NET 7.0.9 (7.0.923.32018), X64 RyuJIT AVX2 DEBUG
+  DefaultJob : .NET 7.0.9 (7.0.923.32018), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>                           Method</th><th> Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>&#39;int - Array.exists&#39;</td><td>680.7 &mu;s</td><td>9.28 &mu;s</td><td>8.22 &mu;s</td><td>-</td><td>33 B</td>
+</tr><tr><td>&#39;int - Array.contains&#39;</td><td>678.8 &mu;s</td><td>4.71 &mu;s</td><td>4.18 &mu;s</td><td>-</td><td>33 B</td>
+</tr><tr><td>&#39;int - Array.containsByExists&#39;</td><td>25,871.9 &mu;s</td><td>516.35 &mu;s</td><td>671.40 &mu;s</td><td>1906.2500</td><td>24024051 B</td>
+</tr><tr><td>&#39;int - Array.containsByExistsInline&#39;</td><td>674.6 &mu;s</td><td>9.77 &mu;s</td><td>9.14 &mu;s</td><td>-</td><td>33 B</td>
+</tr><tr><td>&#39;string - Array.exists&#39;</td><td>2,601.8 &mu;s</td><td>48.39 &mu;s</td><td>69.41 &mu;s</td><td>-</td><td>34 B</td>
+</tr><tr><td>&#39;string - Array.contains&#39;</td><td>2,531.9 &mu;s</td><td>50.01 &mu;s</td><td>53.51 &mu;s</td><td>-</td><td>34 B</td>
+</tr><tr><td>&#39;string - Array.containsByExists&#39;</td><td>6,809.1 &mu;s</td><td>96.07 &mu;s</td><td>85.16 &mu;s</td><td>-</td><td>37 B</td>
+</tr><tr><td>&#39;string - Array.containsByExistsInline&#39;</td><td>2,508.0 &mu;s</td><td>47.43 &mu;s</td><td>44.37 &mu;s</td><td>-</td><td>34 B</td>
+</tr><tr><td>&#39;record - Array.exists&#39;</td><td>788.1 &mu;s</td><td>12.45 &mu;s</td><td>11.03 &mu;s</td><td>-</td><td>33 B</td>
+</tr><tr><td>&#39;record - Array.contains&#39;</td><td>806.3 &mu;s</td><td>15.28 &mu;s</td><td>16.34 &mu;s</td><td>-</td><td>33 B</td>
+</tr><tr><td>&#39;record - Array.containsByExists&#39;</td><td>10,248.9 &mu;s</td><td>196.80 &mu;s</td><td>210.57 &mu;s</td><td>-</td><td>24041 B</td>
+</tr><tr><td>&#39;record - Array.containsByExistsInline&#39;</td><td>802.7 &mu;s</td><td>15.17 &mu;s</td><td>14.19 &mu;s</td><td>-</td><td>33 B</td>
+</tr></tbody></table>
+</body>
+</html>
