@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>ListBenchmarks.SeqTests-20230728-121558</title>
+<title>ListBenchmarks.SeqTests-20230731-103818</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -15,7 +15,7 @@
 <pre><code>
 BenchmarkDotNet=v0.13.4, OS=Windows 10 (10.0.19045.3208)
 12th Gen Intel Core i7-12800H, 1 CPU, 20 logical and 14 physical cores
-.NET SDK=7.0.306
+.NET SDK=8.0.100-preview.6.23330.14
   [Host]     : .NET 7.0.9 (7.0.923.32018), X64 RyuJIT AVX2 DEBUG
   DefaultJob : .NET 7.0.9 (7.0.923.32018), X64 RyuJIT AVX2
 </code></pre>
@@ -24,18 +24,18 @@ BenchmarkDotNet=v0.13.4, OS=Windows 10 (10.0.19045.3208)
 <table>
 <thead><tr><th>                         Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>&#39;int - Seq.exists&#39;</td><td>3.937 ms</td><td>0.0760 ms</td><td>0.0961 ms</td><td>7.8125</td><td>101.62 KB</td>
-</tr><tr><td>&#39;int - Seq.contains&#39;</td><td>2.885 ms</td><td>0.0559 ms</td><td>0.0574 ms</td><td>3.9063</td><td>54.74 KB</td>
-</tr><tr><td>&#39;int - Seq.containsByExists&#39;</td><td>29.364 ms</td><td>0.4812 ms</td><td>0.4501 ms</td><td>1906.2500</td><td>23539.14 KB</td>
-</tr><tr><td>&#39;int - Seq.containsByExistsInline&#39;</td><td>3.682 ms</td><td>0.0726 ms</td><td>0.0864 ms</td><td>-</td><td>78.18 KB</td>
-</tr><tr><td>&#39;string - Seq.exists&#39;</td><td>20.745 ms</td><td>0.2531 ms</td><td>0.2114 ms</td><td>1250.0000</td><td>15540.03 KB</td>
-</tr><tr><td>&#39;string - Seq.contains&#39;</td><td>21.457 ms</td><td>0.3560 ms</td><td>0.3330 ms</td><td>1250.0000</td><td>15493.15 KB</td>
-</tr><tr><td>&#39;string - Seq.containsByExists&#39;</td><td>25.581 ms</td><td>0.4793 ms</td><td>0.4484 ms</td><td>1250.0000</td><td>15516.59 KB</td>
-</tr><tr><td>&#39;string - Seq.containsByExistsInline&#39;</td><td>21.232 ms</td><td>0.3437 ms</td><td>0.3678 ms</td><td>1250.0000</td><td>15516.59 KB</td>
-</tr><tr><td>&#39;record - Seq.exists&#39;</td><td>23.734 ms</td><td>0.2825 ms</td><td>0.2643 ms</td><td>2531.2500</td><td>31211.9 KB</td>
-</tr><tr><td>&#39;record - Seq.contains&#39;</td><td>22.695 ms</td><td>0.2858 ms</td><td>0.2534 ms</td><td>2531.2500</td><td>31165.03 KB</td>
-</tr><tr><td>&#39;record - Seq.containsByExists&#39;</td><td>33.592 ms</td><td>0.6649 ms</td><td>0.6530 ms</td><td>2500.0000</td><td>31211.92 KB</td>
-</tr><tr><td>&#39;record - Seq.containsByExistsInline&#39;</td><td>23.483 ms</td><td>0.4104 ms</td><td>0.3638 ms</td><td>2531.2500</td><td>31188.46 KB</td>
+</thead><tbody><tr><td>&#39;int - Seq.exists&#39;</td><td>1.726 ms</td><td>0.0030 ms</td><td>0.0025 ms</td><td>7.8125</td><td>101.62 KB</td>
+</tr><tr><td>&#39;int - Seq.contains&#39;</td><td>1.223 ms</td><td>0.0062 ms</td><td>0.0058 ms</td><td>3.9063</td><td>54.74 KB</td>
+</tr><tr><td>&#39;int - Seq.containsByExists&#39;</td><td>9.797 ms</td><td>0.0944 ms</td><td>0.0883 ms</td><td>1906.2500</td><td>23539.13 KB</td>
+</tr><tr><td>&#39;int - Seq.containsByExistsInline&#39;</td><td>1.659 ms</td><td>0.0279 ms</td><td>0.0322 ms</td><td>5.8594</td><td>78.18 KB</td>
+</tr><tr><td>&#39;string - Seq.exists&#39;</td><td>8.947 ms</td><td>0.1085 ms</td><td>0.0962 ms</td><td>1265.6250</td><td>15540.02 KB</td>
+</tr><tr><td>&#39;string - Seq.contains&#39;</td><td>9.021 ms</td><td>0.1768 ms</td><td>0.2105 ms</td><td>1250.0000</td><td>15493.14 KB</td>
+</tr><tr><td>&#39;string - Seq.containsByExists&#39;</td><td>10.791 ms</td><td>0.2136 ms</td><td>0.2285 ms</td><td>1265.6250</td><td>15516.58 KB</td>
+</tr><tr><td>&#39;string - Seq.containsByExistsInline&#39;</td><td>8.381 ms</td><td>0.0689 ms</td><td>0.0610 ms</td><td>1265.6250</td><td>15516.58 KB</td>
+</tr><tr><td>&#39;record - Seq.exists&#39;</td><td>10.212 ms</td><td>0.0790 ms</td><td>0.0739 ms</td><td>2546.8750</td><td>31211.89 KB</td>
+</tr><tr><td>&#39;record - Seq.contains&#39;</td><td>9.803 ms</td><td>0.1159 ms</td><td>0.1027 ms</td><td>2531.2500</td><td>31165.02 KB</td>
+</tr><tr><td>&#39;record - Seq.containsByExists&#39;</td><td>12.846 ms</td><td>0.1823 ms</td><td>0.1522 ms</td><td>2546.8750</td><td>31211.89 KB</td>
+</tr><tr><td>&#39;record - Seq.containsByExistsInline&#39;</td><td>10.444 ms</td><td>0.1289 ms</td><td>0.1143 ms</td><td>2531.2500</td><td>31188.45 KB</td>
 </tr></tbody></table>
 </body>
 </html>
