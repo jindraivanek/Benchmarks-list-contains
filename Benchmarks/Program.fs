@@ -8,7 +8,7 @@ module List =
     let containsByExists x xs = List.exists ((=) x) xs
     let inline containsByExistsInline x xs = List.exists ((=) x) xs
 
-    let inline contains2 value (source: list<_>) =
+    let inline containsMutable value (source: list<_>) =
         let mutable xs = source
         let mutable state = false
 
@@ -49,9 +49,9 @@ type ListTests() =
     member _.IntListContainsByExistsInline() =
         test listOfInts List.containsByExistsInline
 
-    [<Benchmark(Description = "int - List.contains2")>]
-    member _.IntListContains2() =
-        test listOfInts List.contains2
+    [<Benchmark(Description = "int - List.containsMutable")>]
+    member _.IntListcontainsMutable() =
+        test listOfInts List.containsMutable
 
     [<Benchmark(Description = "int - List.containsTryFind")>]
     member _.IntListContainsTryFind() =
@@ -73,9 +73,9 @@ type ListTests() =
     member _.StringListContainsByExistsInline() =
         test listOfStrings List.containsByExistsInline
 
-    [<Benchmark(Description = "string - List.contains2")>]
-    member _.StringListContains2() =
-        test listOfStrings List.contains2
+    [<Benchmark(Description = "string - List.containsMutable")>]
+    member _.StringListcontainsMutable() =
+        test listOfStrings List.containsMutable
 
     [<Benchmark(Description = "string - List.containsTryFind")>]
     member _.StringListContainsTryFind() =
@@ -97,9 +97,9 @@ type ListTests() =
     member _.RecordListContainsByExistsInline() =
         test listOfRecords (fun i -> List.containsByExistsInline i)
 
-    [<Benchmark(Description = "record - List.contains2")>]
-    member _.RecordListContains2() =
-        test listOfRecords (fun i -> List.contains2 i)
+    [<Benchmark(Description = "record - List.containsMutable")>]
+    member _.RecordListcontainsMutable() =
+        test listOfRecords (fun i -> List.containsMutable i)
 
     [<Benchmark(Description = "record - List.containsTryFind")>]
     member _.RecordListContainsTryFind() =
@@ -227,8 +227,8 @@ type SeqTests() =
 
 
 BenchmarkRunner.Run<ListTests>()
-//BenchmarkRunner.Run<ArrayTests>()
-//BenchmarkRunner.Run<SeqTests>()
+BenchmarkRunner.Run<ArrayTests>()
+BenchmarkRunner.Run<SeqTests>()
 
 //BenchmarkRunner.Run([| typeof<ListTests>; typeof<ArrayTests>; typeof<SeqTests> |])
 
