@@ -21,6 +21,15 @@ module List =
     let inline containsTryFind value (source: list<_>) =
         source |> List.tryFind (fun x -> value = x) |> Option.isSome
 
+    let inline outerContainsWhatIf value source =
+        let inline isMatch elem = elem = value
+        let  rec innerContainsWhatIf e xs1 =
+            match xs1 with
+            | [] -> false
+            | h1 :: t1 -> isMatch h1 || innerContainsWhatIf e t1
+
+        innerContainsWhatIf value source
+
 let inline test xs f =
     for i in xs do
         f i xs |> ignore
@@ -57,6 +66,10 @@ type ListTests() =
     member _.IntListContainsTryFind() =
         test listOfInts List.containsTryFind
 
+    [<Benchmark(Description = "int - List.outerContainsWhatIf")>]
+    member _.IntListOuterContainsWhatIf() =
+        test listOfInts List.outerContainsWhatIf
+
     [<Benchmark(Description = "string - List.exists")>]
     member _.StringListExists() =
         test listOfStrings (fun i -> List.exists (fun item -> item = i))
@@ -81,6 +94,10 @@ type ListTests() =
     member _.StringListContainsTryFind() =
         test listOfStrings List.containsTryFind
 
+    [<Benchmark(Description = "string - List.outerContainsWhatIf")>]
+    member _.StringListOuterContainsWhatIf() =
+        test listOfStrings List.outerContainsWhatIf
+
     [<Benchmark(Description = "record - List.exists")>]
     member _.RecordListExists() =
         test listOfRecords (fun i -> List.exists (fun item -> item.Id = i.Id))
@@ -104,6 +121,10 @@ type ListTests() =
     [<Benchmark(Description = "record - List.containsTryFind")>]
     member _.RecordListContainsTryFind() =
         test listOfRecords (fun i -> List.containsTryFind i)
+
+    [<Benchmark(Description = "record - List.outerContainsWhatIf")>]
+    member _.RecordListOuterContainsWhatIf() =
+        test listOfRecords (fun i -> List.outerContainsWhatIf i)
 
 module Array =
     let containsByExists x xs = Array.exists ((=) x) xs
@@ -231,4 +252,3 @@ BenchmarkRunner.Run<ArrayTests>()
 BenchmarkRunner.Run<SeqTests>()
 
 //BenchmarkRunner.Run([| typeof<ListTests>; typeof<ArrayTests>; typeof<SeqTests> |])
-
